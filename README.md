@@ -4,14 +4,19 @@ Une application qui prend en photo le contenu du réfrigérateur et propose des 
 
 ## Statut du projet
 
-Ce dépôt décrit le concept et la feuille de route. Aucune application téléchargeable n’est encore disponible.
+Prototype local disponible dans ce dépôt. Il s’agit d’une interface front‑end avec
+ingrédients et recettes simulés pour illustrer l’expérience.
 
-## Comment l’utiliser aujourd’hui
+## Comment l’utiliser
 
-Pour l’instant, il n’y a rien à installer. Vous pouvez toutefois :
+1. Ouvrez `index.html` dans votre navigateur **ou** lancez un serveur local :
 
-- Utiliser ce document comme **brief** pour un prototype.
-- Lancer un **MVP** en suivant les étapes ci-dessous.
+   ```bash
+   python -m http.server 8000
+   ```
+
+2. Allez sur `http://localhost:8000`.
+3. Uploadez une photo pour visualiser l’aperçu et les suggestions simulées.
 
 ## Objectif
 

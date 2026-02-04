@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>IA Frigo Recettes</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Prototype</p>
+          <h1>IA Frigo Recettes</h1>
+          <p class="subtitle">
+            Téléchargez une photo de votre frigo et obtenez des idées de recettes
+            adaptées aux ingrédients détectés.
+          </p>
+        </div>
+        <div class="hero-card">
+          <h2>Démo rapide</h2>
+          <p>
+            Cette version est un prototype local. Les ingrédients sont simulés
+            pour illustrer l’expérience.
+          </p>
+          <ul>
+            <li>Upload d’une photo</li>
+            <li>Liste d’ingrédients détectés</li>
+            <li>Suggestions de recettes</li>
+          </ul>
+        </div>
+      </header>
+
+      <main>
+        <section class="upload">
+          <div class="panel">
+            <h2>1. Ajoutez une photo</h2>
+            <p>
+              Formats acceptés : JPG, PNG. Aucun fichier n’est envoyé, tout se
+              passe en local.
+            </p>
+            <label class="upload-area" for="photo-input">
+              <input id="photo-input" type="file" accept="image/*" />
+              <span>Glissez-déposez votre photo ou cliquez pour sélectionner</span>
+            </label>
+            <div class="preview" id="preview">
+              <span class="placeholder">Aperçu de la photo</span>
+              <img id="preview-image" alt="Aperçu de votre frigo" />
+            </div>
+          </div>
+
+          <div class="panel">
+            <h2>2. Ingrédients détectés</h2>
+            <div class="chips" id="ingredients"></div>
+            <button class="secondary" id="edit-ingredients" type="button">
+              Éditer la liste
+            </button>
+          </div>
+
+          <div class="panel">
+            <h2>3. Recettes suggérées</h2>
+            <div class="recipes" id="recipes"></div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <p>
+          Prototype UI — aucune donnée n’est transmise. Remplacez la simulation
+          par un modèle de vision pour passer en production.
+        </p>
+      </footer>
+    </div>
+
+    <dialog id="ingredient-dialog">
+      <form method="dialog">
+        <h3>Modifier les ingrédients</h3>
+        <p>Séparez les ingrédients par des virgules.</p>
+        <textarea id="ingredient-input" rows="5"></textarea>
+        <div class="actions">
+          <button value="cancel" class="secondary">Annuler</button>
+          <button value="confirm" class="primary">Enregistrer</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="app.js"></script>
+  </body>
+</html>
