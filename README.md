@@ -5,7 +5,7 @@ Une application qui prend en photo le contenu du réfrigérateur et propose des 
 ## Statut du projet
 
 Prototype local disponible dans ce dépôt. Il s’agit d’une interface front‑end avec
-ingrédients et recettes simulés pour illustrer l’expérience.
+ingrédients et recettes simulés pour illustrer l’expérience, avec option Gemini.
 
 ## Comment l’utiliser
 
@@ -17,6 +17,14 @@ ingrédients et recettes simulés pour illustrer l’expérience.
 
 2. Allez sur `http://localhost:8000`.
 3. Uploadez une photo pour visualiser l’aperçu et les suggestions simulées.
+4. Choisissez un mode (gym/healthy, snack, famille) puis cliquez sur Générer.
+
+## Activer Gemini (optionnel)
+
+Pour utiliser Gemini, ajoutez votre propre clé d’API dans l’interface (elle est
+stockée uniquement dans votre navigateur via localStorage).
+
+> Ne commitez jamais une clé d’API dans Git.
 
 ## Objectif
 

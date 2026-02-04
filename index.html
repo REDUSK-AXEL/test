@@ -16,17 +16,22 @@
             Téléchargez une photo de votre frigo et obtenez des idées de recettes
             adaptées aux ingrédients détectés.
           </p>
+          <div class="toggle-row">
+            <button class="secondary" id="theme-toggle" type="button">
+              Passer en mode sombre
+            </button>
+          </div>
         </div>
         <div class="hero-card">
           <h2>Démo rapide</h2>
           <p>
-            Cette version est un prototype local. Les ingrédients sont simulés
-            pour illustrer l’expérience.
+            Cette version est un prototype local. Les ingrédients et recettes
+            peuvent être simulés ou générés par Gemini si vous configurez une clé.
           </p>
           <ul>
             <li>Upload d’une photo</li>
             <li>Liste d’ingrédients détectés</li>
-            <li>Suggestions de recettes</li>
+            <li>Suggestions de recettes + calories</li>
           </ul>
         </div>
       </header>
@@ -59,15 +64,27 @@
 
           <div class="panel">
             <h2>3. Recettes suggérées</h2>
+            <div class="mode-row">
+              <label for="mode-select">Mode</label>
+              <select id="mode-select">
+                <option value="healthy">Gym / Healthy</option>
+                <option value="snack">Snack rapide</option>
+                <option value="family">Dîner en famille</option>
+              </select>
+              <button class="primary" id="generate" type="button">
+                Générer les recettes
+              </button>
+            </div>
             <div class="recipes" id="recipes"></div>
+            <p class="helper" id="ai-status"></p>
           </div>
         </section>
       </main>
 
       <footer>
         <p>
-          Prototype UI — aucune donnée n’est transmise. Remplacez la simulation
-          par un modèle de vision pour passer en production.
+          Prototype UI — aucune donnée n’est transmise sans votre action. Ajoutez
+          une clé Gemini pour des suggestions IA en direct.
         </p>
       </footer>
     </div>
@@ -77,6 +94,26 @@
         <h3>Modifier les ingrédients</h3>
         <p>Séparez les ingrédients par des virgules.</p>
         <textarea id="ingredient-input" rows="5"></textarea>
+        <div class="actions">
+          <button value="cancel" class="secondary">Annuler</button>
+          <button value="confirm" class="primary">Enregistrer</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="gemini-dialog">
+      <form method="dialog">
+        <h3>Configurer Gemini</h3>
+        <p>
+          Saisissez votre clé d’API Gemini. Elle est conservée uniquement dans
+          votre navigateur (localStorage).
+        </p>
+        <input
+          id="gemini-key-input"
+          type="password"
+          placeholder="AIza..."
+          autocomplete="off"
+        />
         <div class="actions">
           <button value="cancel" class="secondary">Annuler</button>
           <button value="confirm" class="primary">Enregistrer</button>
