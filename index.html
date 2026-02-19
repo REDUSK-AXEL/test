@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>IA Frigo Recettes</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Prototype</p>
+          <h1>IA Frigo Recettes</h1>
+          <p class="subtitle">
+            Téléchargez une photo de votre frigo et obtenez des idées de recettes
+            adaptées aux ingrédients détectés.
+          </p>
+          <div class="toggle-row">
+            <button class="secondary" id="theme-toggle" type="button">
+              Passer en mode sombre
+            </button>
+          </div>
+        </div>
+        <div class="hero-card">
+          <h2>Démo rapide</h2>
+          <p>
+            Cette version est un prototype local. Les ingrédients et recettes
+            peuvent être simulés ou générés par Gemini si vous configurez une clé.
+          </p>
+          <ul>
+            <li>Upload d’une photo</li>
+            <li>Liste d’ingrédients détectés</li>
+            <li>Suggestions de recettes + calories</li>
+          </ul>
+        </div>
+      </header>
+
+      <main>
+        <section class="upload">
+          <div class="panel">
+            <h2>1. Ajoutez une photo</h2>
+            <p>
+              Formats acceptés : JPG, PNG. Aucun fichier n’est envoyé, tout se
+              passe en local.
+            </p>
+            <label class="upload-area" for="photo-input">
+              <input id="photo-input" type="file" accept="image/*" />
+              <span>Glissez-déposez votre photo ou cliquez pour sélectionner</span>
+            </label>
+            <div class="preview" id="preview">
+              <span class="placeholder">Aperçu de la photo</span>
+              <img id="preview-image" alt="Aperçu de votre frigo" />
+            </div>
+          </div>
+
+          <div class="panel">
+            <h2>2. Ingrédients détectés</h2>
+            <div class="chips" id="ingredients"></div>
+            <button class="secondary" id="edit-ingredients" type="button">
+              Éditer la liste
+            </button>
+          </div>
+
+          <div class="panel">
+            <h2>3. Recettes suggérées</h2>
+            <div class="mode-row">
+              <label for="mode-select">Mode</label>
+              <select id="mode-select">
+                <option value="healthy">Gym / Healthy</option>
+                <option value="snack">Snack rapide</option>
+                <option value="family">Dîner en famille</option>
+              </select>
+              <button class="primary" id="generate" type="button">
+                Générer les recettes
+              </button>
+            </div>
+            <div class="recipes" id="recipes"></div>
+            <p class="helper" id="ai-status"></p>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <p>
+          Prototype UI — aucune donnée n’est transmise sans votre action. Ajoutez
+          une clé Gemini pour des suggestions IA en direct.
+        </p>
+      </footer>
+    </div>
+
+    <dialog id="ingredient-dialog">
+      <form method="dialog">
+        <h3>Modifier les ingrédients</h3>
+        <p>Séparez les ingrédients par des virgules.</p>
+        <textarea id="ingredient-input" rows="5"></textarea>
+        <div class="actions">
+          <button value="cancel" class="secondary">Annuler</button>
+          <button value="confirm" class="primary">Enregistrer</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="gemini-dialog">
+      <form method="dialog">
+        <h3>Configurer Gemini</h3>
+        <p>
+          Saisissez votre clé d’API Gemini. Elle est conservée uniquement dans
+          votre navigateur (localStorage).
+        </p>
+        <input
+          id="gemini-key-input"
+          type="password"
+          placeholder="AIza..."
+          autocomplete="off"
+        />
+        <div class="actions">
+          <button value="cancel" class="secondary">Annuler</button>
+          <button value="confirm" class="primary">Enregistrer</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="app.js"></script>
+  </body>
+</html>
